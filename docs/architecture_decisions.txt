@@ -1,0 +1,7 @@
+Achitecture Design
+
+The project was already implemented using REST APIs, this is an important when considering costs and human resources for implementing changes.
+Therefore, for parts of the project which include the frontend API calls we keep the REST API infrastrucure. It is widely adopted and we don't require high througphut.
+
+For sending location data from the mobile devices we need a higher throughput. Since the can be many requests when a lot of users are on the same event. For that reason we adopted gRPC. Overall, gRPC provides more structure and important - more speed.
+Additionally, we added a message queue using Kafka, for similar reasons as before. The expected load is expected to be high and such message queues are a good way to ensure that there is no loss of data and the messages can be processed in a smarter, parallel way.

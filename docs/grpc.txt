@@ -1,0 +1,25 @@
+The following protobuf definition is used:
+
+message LocationMessage {
+    int32 person_id = 1;
+    int32 longitude = 2;
+    int32 latitude = 3;
+}
+
+To test the API, first follow the README instructions to set up the app using kubernetes. After, all the pods are running
+from the location `nd064-c2-message-passing-projects-starter/modules/location_producer` it is possible to run a simple command to
+create a location.
+First install the defined requirements in requirements.txt and then run
+
+```
+python writer_test.py
+```
+
+It will create the following location message:
+
+location = location_pb2.LocationMessage(
+    person_id=6,
+    latitude=200,
+    longitude=300
+
+)
